@@ -1,0 +1,74 @@
+<div class="container mt-5" style="margin-left: 200px;">
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="countryForm" (submit)="create()">
+            <div class="form-wrapper">
+              <h5>Add a new country</h5>
+              <div class="forms">          
+                    <div class="form-group">
+                        <label for="usr">Name:</label>
+                        <input  class="form-control" [ngClass]="{'is-invalid': countryForm.get('name').errors 
+                        && countryForm.get('name').touched}" 
+                         id="name" placeholder="Country name"  formControlName="name" type="text">
+                         <div class="invalid-feedback">Please choose a Name</div>
+                      </div>
+                      <div class="form-group">
+                        <label for="usr">Code:</label>
+                        <input  class="form-control" [ngClass]="{'is-invalid': countryForm.get('code').errors 
+                        && countryForm.get('code').touched}"  id="code" placeholder="Code" formControlName="code"  type="text">
+                        <div class="invalid-feedback">Please write a Code</div>
+                      </div>
+                      <div class="form-group">
+                        <label for="usr">VAT:</label>
+                        <input class="form-control"  [ngClass]="{'is-invalid': countryForm.get('vat').errors 
+                        && countryForm.get('vat').touched}" id="vat" placeholder="VAT" formControlName="vat"  type="number">
+                        <div class="invalid-feedback">Please write a value</div>
+                      </div>
+                      <div class="form-group">
+                          <label for="">Language</label>
+                          <div class="form-group state-form">
+                              <select class="form-control"  [ngClass]="{'is-invalid': countryForm.get('languageId').errors 
+                              && countryForm.get('languageId').touched}" 
+                              id="date" value="languageId" formControlName="languageId" >
+                                <option class="option-control" *ngFor="let lang of country.languages" [value]="lang.id" >{{lang.name}}</option>
+                              </select>
+                              <div class="invalid-feedback">Please select a language</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Currency</label>
+                              <div class="form-group state-form">
+                                <select class="form-control"  [ngClass]="{'is-invalid': countryForm.get('currencySymbolId').errors 
+                                && countryForm.get('currencySymbolId').touched}" 
+                                id="date" value="currencySymbolId" formControlName="currencySymbolId" >
+                                  <option class="option-control" *ngFor="let c of country.currencySymbols" [value]="c.id" >{{c.symbol}}</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a currency</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="">Currency Format</label>
+                              <div class="form-group state-form">
+                                <select class="form-control"  [ngClass]="{'is-invalid': countryForm.get('currencyFormatId').errors 
+                                && countryForm.get('currencyFormatId').touched}" 
+                                id="date" value="currencyFormatId" formControlName="currencyFormatId" >
+                                  <option class="option-control" *ngFor="let curr of country.currencyFormats" [value]="curr.id" >{{curr.format}}</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a currency</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label><input type="checkbox" formControlName="isDeleted">Deleted</label>
+                          </div>                          
+                </div>
+                  </div>            
+          <button class="btn btn-primary mr-3" [disabled]="!countryForm.valid" type="submit">Submit</button> 
+          <button class="btn btn-primary" type="button" [routerLink]="['/countries']" routerLinkActive="router-link-active" >Cancel</button>  
+        </form> 
+    </div>
+  </div>
+</div>
+
+<!-- 
+  <p>Form value: {{countryForm.value | json}}</p>
+  <p>Form status: {{countryForm.status | json}}</p> -->

@@ -1,0 +1,41 @@
+<div class="container" style="margin-left:200px;">
+  <button
+    class="btn btn-primary mb-2"
+    [routerLink]="['/editpackageplanprice/0',packageid]"
+    routerLinkActive="router-link-active"
+  >
+    Add new
+  </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Package Plan</th>
+        <th>Currency Symbol</th>
+        <th>Country</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let packageplanprice of packagePlanPrices">
+        <td>
+          <a [routerLink]="['/packages']">
+            {{ packageplanprice.packagePlan?.name }}
+          </a>
+        </td>
+        <td>{{ packageplanprice.currencySymbol?.symbol }}</td>
+        <td>{{ packageplanprice.country?.name }}</td>
+        <td>{{ packageplanprice?.price }}</td>
+        <td>
+          <button
+            (click)="editPackagePlanPrice(packageplanprice.id)"
+            class="btn btn-link"
+          >
+            Edit
+          </button>
+          | <a href="">Disable</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

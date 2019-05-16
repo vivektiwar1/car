@@ -1,0 +1,33 @@
+<div class="container mt-5" style="margin-left: 200px;" >
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="vehicleCategoryForm" (submit)="create()">
+                <div class="form-wrapper">
+                  <h5>Add a new Vehicle Category</h5>
+                  <div class="forms">          
+                        <div class="form-group">
+                            <label for="usr">Name:</label>
+                            <input  class="form-control" [ngClass]="{'is-invalid': vehicleCategoryForm.get('name').errors 
+                            && vehicleCategoryForm.get('name').touched}" 
+                             id="name" placeholder="Vehicle Category name"  formControlName="name" type="text">
+                             <div class="invalid-feedback">Please choose a Name</div>
+                          </div>
+                          <div class="form-group">
+                            <label for="usr">Description:</label>
+                            <input  class="form-control"  id="description" placeholder="Vehicle Category description" formControlName="description"  type="text">
+                          </div>
+                          <div class="form-group">
+                              <label><input type="checkbox" formControlName="isDeleted">Deleted</label>
+                          </div>                          
+                    </div>
+                      </div>            
+              <button class="btn btn-primary mr-3" [disabled]="!vehicleCategoryForm.valid" type="submit">Submit</button> 
+              <button class="btn btn-primary" type="button" [routerLink]="['/vehiclecategories']" routerLinkActive="router-link-active" >Cancel</button>  
+            </form> 
+        </div>
+      </div>
+    </div>
+    
+    <!-- 
+      <p>Form value: {{vehicleCategoryForm.value | json}}</p>
+      <p>Form status: {{vehicleCategoryForm.status | json}}</p> -->

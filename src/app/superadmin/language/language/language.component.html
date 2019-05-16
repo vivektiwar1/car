@@ -1,0 +1,27 @@
+
+<div class="container mt-5" style="margin-left: 200px;" >
+  <div style="display: flex; justify-content: flex-end; margin-bottom:20px;border-radius: 5%;"> 
+      <div class="AddButton"  [routerLink]="['/editlanguage/0']" routerLinkActive="router-link-active" >Add new</div> 
+  </div>
+    <div class="card">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="tblHeader">Name</th>
+                <th scope="col" class="tblHeader" >Actions</th>
+                <th scope="col" class="tblHeader"></th>          
+              
+              </tr>
+            </thead>
+            <tbody class="tblBody">
+              <tr *ngFor="let language of languages">
+                <td>{{language.name}}</td>
+                <td>{{language.code}}</td>
+                <td><button (click)="editLanguage(language.id)" class="btn btn-link">Edit</button> |
+                  <button (click)="deleteLanguage(language.id)" class="btn btn-link">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>

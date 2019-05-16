@@ -1,0 +1,170 @@
+<div class="container mt-5" style="margin-left: 200px;">
+  <form [formGroup]="registerForm" style="width: 100%;">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Personal Information</h5>
+        <div class="form-group">
+          <label for="FirstName">First Name:</label>
+          <input
+            (blur)="checkIsEmpty($event)"
+            (focus)="onFocusField($event)"
+            [ngClass]="{
+              'is-invalid':
+                registerForm.get('FirstName').errors &&
+                registerForm.get('FirstName').touched
+            }"
+            class="form-control active-form"
+            formControlName="FirstName"
+            id="FirstName"
+            placeholder="First Name"
+            type="text"
+            [(ngModel)]="currentUser.name"
+          />
+          <!-- <div class="invalid-feedback">Please choose a First Name</div> -->
+        </div>
+        <div class="form-group">
+          <label for="LastName">Last Name:</label>
+          <input
+            (blur)="checkIsEmpty($event)"
+            (focus)="onFocusField($event)"
+            [ngClass]="{
+              'is-invalid':
+                registerForm.get('LastName').errors &&
+                registerForm.get('LastName').touched
+            }"
+            class="form-control active-form"
+            formControlName="LastName"
+            id="LastName"
+            placeholder="Last Name"
+            type="text"
+            [(ngModel)]="currentUser.lastName"
+          />
+          <!-- <div class="invalid-feedback">Please choose a Last Name</div> -->
+        </div>
+        <div class="form-group">
+          <label for="Email">Email:</label>
+          <input
+            (blur)="checkIsEmpty($event)"
+            (focus)="onFocusField($event)"
+            [ngClass]="{
+              'is-invalid':
+                registerForm.get('Email').errors &&
+                registerForm.get('Email').touched
+            }"
+            class="form-control  active-form"
+            formControlName="Email"
+            id="Email"
+            placeholder="Email"
+            type="text"
+            [(ngModel)]="currentUser.email"
+          />
+          <!-- <div class="invalid-feedback">Please write an email</div> -->
+        </div>
+        <div class="form-group">
+          <label for="Address">Address:</label>
+          <input
+            (blur)="checkIsEmpty($event)"
+            (focus)="onFocusField($event)"
+            class="form-control  active-form"
+            formControlName="Address"
+            id="Address"
+            placeholder="Address"
+            type="text"
+            [(ngModel)]="currentUser.Address"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Phone">Phone:</label>
+          <input
+            (blur)="checkIsEmpty($event)"
+            (focus)="onFocusField($event)"
+            class="form-control  active-form"
+            formControlName="Phone"
+            id="Phone"
+            placeholder="Phone"
+            type="number"
+            [(ngModel)]="currentUser.phone"
+          />
+        </div>
+        <div class="options-forms">
+          <label for="">Date Of Birth</label>
+          <div class="options-form-wrapper form-inline">
+            <div class="form-group date-form">
+              <select
+                (blur)="checkIsEmpty($event)"
+                (focus)="onFocusField($event)"
+                [ngClass]="{
+                  'is-invalid':
+                    registerForm.get('Date').errors &&
+                    registerForm.get('Date').touched
+                }"
+                class="form-control active-form"
+                formControlName="Date"
+                id="date"
+                value="Date"
+                [(ngModel)]="currentDay"
+              >
+                <option
+                  (blur)="checkIsEmpty($event)"
+                  (focus)="onFocusField($event)"
+                  *ngFor="let day of days"
+                  [value]="day"
+                  class="option-control"
+                  >{{ day }}</option
+                >
+              </select>
+              <!-- <div class="invalid-feedback">Please select a date</div> -->
+            </div>
+            <div class="form-group month-form">
+              <select
+                (blur)="checkIsEmpty($event)"
+                (focus)="onFocusField($event)"
+                [ngClass]="{
+                  'is-invalid':
+                    registerForm.get('Month').errors &&
+                    registerForm.get('Month').touched
+                }"
+                class="form-control  active-form"
+                formControlName="Month"
+                id="Month"
+                [(ngModel)]="currentMonth"
+              >
+                <option
+                  *ngFor="let month of months"
+                  [value]="month"
+                  class="option-control"
+                  >{{ month }}</option
+                >
+              </select>
+              <!-- <div class="invalid-feedback">Please select a month</div> -->
+            </div>
+            <div class="form-group year-form">
+              <select
+                (blur)="checkIsEmpty($event)"
+                (focus)="onFocusField($event)"
+                [ngClass]="{
+                  'is-invalid':
+                    registerForm.get('Year').errors &&
+                    registerForm.get('Year').touched
+                }"
+                class="form-control  active-form"
+                formControlName="Year"
+                id="Year"
+                [(ngModel)]="currentYear"
+              >
+                <option
+                  *ngFor="let year of years"
+                  [value]="year"
+                  class="option-control"
+                  >{{ year }}</option
+                >
+              </select>
+              <!-- <div class="invalid-feedback">Please select a Year</div> -->
+            </div>
+          </div>
+        </div>
+        <!-- <button class="btn btn-default" type="button">Next</button> -->
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,5 @@
+<!-- <app-nav></app-nav> -->
+<app-main-nav-bar-component *ngIf="authService.loggedIn()"></app-main-nav-bar-component>
+<app-left-nav-component *ngIf="authService.loggedIn()"></app-left-nav-component>
+<router-outlet></router-outlet>
+ 

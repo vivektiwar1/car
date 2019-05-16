@@ -1,0 +1,25 @@
+<div class="container" style="margin-left:200px;">
+  <form [formGroup]="packageForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label>Name</label>
+          <input type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid': packageForm.get('name').errors 
+          && packageForm.get('name').touched}" />
+          <div class="invalid-feedback">Please choose a Name</div>
+      </div>
+      <div class="form-group">
+          <label>Description</label>
+          <input type="text" formControlName="description" class="form-control"  />
+          
+      </div>
+      <div class="form-group" [hidden]="addBtn">
+        <div class="form-check">
+            <input type="checkbox" formControlName="isDeleted" class="form-check-input"  />
+            <label class="form-check-label">Disable</label>
+        </div>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary" [hidden]="!addBtn" [disabled]="!packageForm.valid">Add</button>
+          <button class="btn btn-primary" [hidden]="addBtn" [disabled]="!packageForm.valid">Update</button>
+      </div>
+  </form>
+</div>

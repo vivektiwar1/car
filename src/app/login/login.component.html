@@ -1,0 +1,389 @@
+<div class="content-wrapper" *ngIf="!authService.loggedIn()">
+  <div class="left-part-wrapper">
+    <div class="content">
+      <img alt="" class="logo" src="../../assets/Icons/logo.svg">
+      <a
+        (click)="setLoginMode('login')"
+        class="navigation-link login {{ loginMode ? 'active' : '' }}"
+      > Login</a
+      >
+      <a
+        (click)="setLoginMode('register')"
+        class="navigation-link sign-up {{ loginMode ? '' : 'active' }}"
+      >Register</a
+      >
+    </div>
+  </div>
+
+  <div *ngIf="loginMode" class="login-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-wrapper">
+          <form #loginForm="ngForm" (ngSubmit)="login()">
+            <h5>You Can Login</h5>
+            <div class="forms">
+              <div class="options-forms">
+                <div class="form-group state-form">
+                  <label for="country">State</label>
+                  <select (focus)="onFocusField($event)" [(ngModel)]="model.country" class="form-control" id="country"
+                          name="country">
+                      <option selected>...</option>
+                      <option *ngFor="let country of countries" [value]="country.id" class="option-control">
+                          {{country.name}}
+                      </option>
+                  </select>
+                </div>
+                <div class="form-group languange-form">
+                  <label for="language">Language</label>
+                  <select (focus)="onFocusField($event)" class="form-control" [(ngModel)]="model.language"  id="language" name="language">
+                      <option selected>...</option>
+                      <option *ngFor="let language of languages" [value]="language.code" class="option-control">{{language.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username">Name:</label>
+                <input
+                  (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                  [(ngModel)]="model.Username"
+                  class="form-control "
+                  id="username"
+                  name="Username"
+                  placeholder="User"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input
+                  (blur)="checkIsEmpty($event)"
+                  (focus)="onFocusField($event)"
+                  [(ngModel)]="model.Password"
+                  class="form-control"
+                  id="password"
+                  name="Password"
+                  placeholder="Password"
+                  type="password"
+                />
+              </div>
+              <div class="text-part">
+                <div class="form-check">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      class="custom-control-input "
+                      id="remember-me"
+                      type="checkbox"
+                    />
+                    <label
+                      class="custom-control-label remember-me-label"
+                      for="remember-me"
+                    >Remember Me</label
+                    >
+                  </div>
+                </div>
+
+                <a class="forgot-password" href="#">Forgot Password ?</a>
+              </div>
+              <button [disabled]="!loginForm.valid" class="btn btn-primary" type="submit">Login</button>
+            </div>
+            <!--<div class="term-of-use">-->
+              <!--<div class="custom-control custom-checkbox">-->
+                <!--<input-->
+                  <!--class="custom-control-input"-->
+                  <!--id="customCheck1"-->
+                  <!--type="checkbox"-->
+                <!--/>-->
+                <!--<label class="custom-control-label" for="customCheck1"-->
+                <!--&gt;<p>-->
+                  <!--I agree to the <a class="terms" href="#">Terms of Use </a> and-->
+                  <!--our <a class="privacy-policy" href="#"> Privacy Policy.</a>-->
+                <!--</p></label-->
+                <!--&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div *ngIf="!loginMode" class="register-wrapper">
+
+    <form (submit)="register()" [formGroup]="registerForm" style="width: 100%;">
+
+      <div class="form-wrapper">
+        <div class="forms">
+          <div *ngIf="!nextStep && !lastStep">
+            <ul class="progressbar">
+              <li class="active"></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <h5>Personal Information</h5>
+
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <label for="FirstName">First Name:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                         [ngClass]="{'is-invalid': registerForm.get('FirstName').errors
+                  && registerForm.get('FirstName').touched}" class="form-control" formControlName="FirstName"
+                         id="FirstName"
+                         placeholder="First Name" type="text"
+                  >
+                  <!-- <div class="invalid-feedback">Please choose a First Name</div> -->
+                </div>
+                <div class="form-group">
+                  <label for="LastName">Last Name:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" [ngClass]="{'is-invalid': registerForm.get('LastName').errors
+                  && registerForm.get('LastName').touched}"
+                         class="form-control"
+                         formControlName="LastName" id="LastName"
+                         placeholder="Last Name" type="text">
+                  <!-- <div class="invalid-feedback">Please choose a Last Name</div> -->
+                </div>
+                <div class="form-group">
+                  <label for="Email">Email:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" [ngClass]="{'is-invalid': registerForm.get('Email').errors
+                  && registerForm.get('Email').touched}" class="form-control"
+                         formControlName="Email"
+                         id="Email" placeholder="Email"
+                         type="text">
+                  <!-- <div class="invalid-feedback">Please write an email</div> -->
+                </div>
+                <div class="form-group">
+                  <label for="Address">Address:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" class="form-control"
+                         formControlName="Address" id="Address"
+                         placeholder="Address" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="Phone">Phone:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" class="form-control"
+                         formControlName="Phone" id="Phone"
+                         placeholder="Phone" type="number">
+                </div>
+                <div class="options-forms">
+                  <label for="">Date Of Birth</label>
+                  <div class="options-form-wrapper">
+                    <div class="form-group date-form">
+                      <select (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                              [ngClass]="{'is-invalid': registerForm.get('Date').errors
+                        && registerForm.get('Date').touched}" class="form-control" formControlName="Date"
+                              id="date" value="Date"
+                      >
+                        <option (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" *ngFor="let day of days"
+                                [value]="day"
+                                class="option-control">{{day}}</option>
+                      </select>
+                      <!-- <div class="invalid-feedback">Please select a date</div> -->
+                    </div>
+                    <div class="form-group month-form">
+                      <select (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" [ngClass]="{'is-invalid': registerForm.get('Month').errors
+                        && registerForm.get('Month').touched}" class="form-control"
+                              formControlName="Month" id="Month">
+                        <option *ngFor="let month of months" [value]="month" class="option-control">{{month}}</option>
+                      </select>
+                      <!-- <div class="invalid-feedback">Please select a month</div> -->
+                    </div>
+                    <div class="form-group year-form">
+                      <select (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" [ngClass]="{'is-invalid': registerForm.get('Year').errors
+                        && registerForm.get('Year').touched}" class="form-control"
+                              formControlName="Year" id="Year">
+                        <option *ngFor="let year of years" [value]="year" class="option-control">{{year}}</option>
+                      </select>
+                      <!-- <div class="invalid-feedback">Please select a Year</div> -->
+                    </div>
+                  </div>
+                </div>
+                <button (click)="changeNextStep()" class="btn btn-default" type="button">Next</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="nextStep && !lastStep" class="next-step-info">
+            <ul class="progressbar">
+              <li class="active"></li>
+              <li class="active"></li>
+              <li></li>
+            </ul>
+            <h5>Company Information</h5>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="">
+                  <div class="img-uploader">
+                    <div class="box">
+                      <input (change)="onFileChange($event)" class="inputfile inputfile-4"
+                             data-multiple-caption="{count} files selected" id="file-5" multiple
+                             name="file-5[]" type="file"/>
+                      <label for="file-5">
+                        <figure><i class="fa  fa-camera-retro"></i></figure>
+                        <span id="logoSpan">Upload your Logo&hellip;</span></label>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="UserName">Username:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                         [ngClass]="{'is-invalid': registerForm.get('UserName').errors
+              && registerForm.get('UserName').touched}" class="form-control" formControlName="UserName" id="UserName"
+                         placeholder="UserName" type="text">
+                  <!-- <div class="invalid-feedback">Please choose a username</div> -->
+                </div>
+                <div class="form-group">
+                  <label for="registerPassword">Password:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                         [ngClass]="{'is-invalid': registerForm.get('Password').errors
+                  && registerForm.get('Password').touched}"
+                         class="form-control"
+                         formControlName="Password" id="registerPassword"
+                         placeholder="Password"
+                         type="password">
+                  <div *ngIf="registerForm.get('Password').hasError('required')
+                    && registerForm.get('Password').touched"
+                       class="invalid-feedback">
+                    Password is required
+                  </div>
+                  <div *ngIf="registerForm.get('Password').hasError('minlength')
+                  && registerForm.get('Password').touched"
+                       class="invalid-feedback">
+                    Password must be at least 4 characters
+                  </div>
+                  <div *ngIf="registerForm.get('Password').hasError('maxlength')
+                && registerForm.get('Password').touched"
+                       class="invalid-feedback">
+                    Password cannot exceed 8 characters
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="registerConfirmPassword">Confirm Password:</label>
+                  <input (blur)="checkIsEmpty($event)"
+                         (focus)="onFocusField($event)"
+                         [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors
+                  && registerForm.get('confirmPassword').touched
+                  || registerForm.get('confirmPassword').touched
+                  && registerForm.hasError('mismatch')}"
+                         class="form-control"
+                         formControlName="confirmPassword"
+                         id="registerConfirmPassword" placeholder="Confirm Password"
+                         type="password">
+                  <div *ngIf="registerForm.get('confirmPassword').hasError('required')
+                  && registerForm.get('confirmPassword').touched"
+                       class="invalid-feedback">
+                    Confirm Password is required
+                  </div>
+                  <div *ngIf="registerForm.hasError('mismatch')
+                && registerForm.get('confirmPassword').touched"
+                       class="invalid-feedback">
+                    Passwords must match
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="CompanyName">CompanyName:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                         [ngClass]="{'is-invalid': registerForm.get('Email').errors
+              && registerForm.get('Email').touched}" class="form-control" formControlName="CompanyName" id="CompanyName"
+                         placeholder="CompanyName" type="text">
+                  <div class="invalid-feedback">Please write a company name</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="CompanyEmail">Company Email:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                         [ngClass]="{'is-invalid': registerForm.get('Email').errors
+              && registerForm.get('Email').touched}" class="form-control" formControlName="CompanyEmail"
+                         id="CompanyEmail"
+                         placeholder="CompanyEmail" type="text">
+                  <div class="invalid-feedback">Please write a company email</div>
+                </div>
+                <div class="form-group">
+                  <label for="CompanyPhone">Company Phone:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" class="form-control"
+                         formControlName="CompanyPhone" id="CompanyPhone"
+                         placeholder="CompanyPhone" type="number">
+                </div>
+                <div class="form-group">
+                  <label for="CompanyAddress">Company Address:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" class="form-control"
+                         formControlName="CompanyAddress" id="CompanyAddress"
+                         placeholder="CompanyAddress" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="PostalCode">Postal Code:</label>
+                  <input (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)" class="form-control"
+                         formControlName="PostalCode"
+                         id="PostalCode" placeholder="PostalCode"
+                         type="number">
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="Country">Country</label>
+                    <select (blur)="checkIsEmpty($event)" (change)="getCities($event.target.value)"
+                            (focus)="onFocusField($event)"
+                            [ngClass]="{'is-invalid': registerForm.get('Country').errors
+                              && registerForm.get('Country').touched}" class="form-control" formControlName="Country"
+                            id="Country"
+                            value="Country">
+                      <option selected>...</option>
+                      <option *ngFor="let country of countries" [value]="country.id"
+                              class="option-control">{{country.name}}</option>
+                    </select>
+                    <!-- <div class="invalid-feedback">Please select a country</div> -->
+                  </div>
+                  <div class="col">
+                    <label for="City">City</label>
+                    <select (blur)="checkIsEmpty($event)" (focus)="onFocusField($event)"
+                            [ngClass]="{'is-invalid': registerForm.get('City').errors
+                          && registerForm.get('City').touched}" class="form-control" formControlName="City" id="City"
+                            value="City">
+                      <option selected>...</option>
+                      <option *ngFor="let city of cities" [value]="city.id"
+                              class="option-control">{{city.name}}</option>
+                    </select>
+                    <!-- <div class="invalid-feedback">Please select a city</div> -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="term-of-use">
+              <div class="custom-control custom-checkbox">
+                <input
+                  class="custom-control-input"
+                  id="customCheck2"
+                  type="checkbox"
+                />
+                <label class="custom-control-label" for="customCheck2"
+                ><p>
+                  I agree to the <a class="terms" href="#">Terms of Use </a> and
+                  our <a class="privacy-policy" href="#"> Privacy Policy.</a>
+                </p></label
+                >
+              </div>
+            </div>
+            <div class="button-wrapper">
+              <button class="btn btn-default pull-left col-sm-5 mr-4" type="submit">Submit</button>
+              <button (click)="changeNextStep()" class="btn btn-default pull-right col-sm-5" type="button">Back</button>
+            </div>
+          </div>
+          <div *ngIf="lastStep" class="successful">
+            <ul class="progressbar">
+              <li class="active"></li>
+              <li class="active"></li>
+              <li class="active"></li>
+            </ul>
+            <br>
+            <h5 class="first-header">Successful</h5>
+            <p>Check Your E-Mail for a booking confirmation.
+              We'll see you soon! Lorem Ipsum has been the industry's standard dummy </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

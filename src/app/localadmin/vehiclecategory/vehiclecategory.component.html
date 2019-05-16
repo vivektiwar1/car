@@ -1,0 +1,23 @@
+
+<div class="container">
+  <button class="btn btn-primary mb-2" [routerLink]="['/editvehicletype/0']" routerLinkActive="router-link-active" >Add new</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th >Name</th>
+        <th >Company</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicletype of vehicleTypes">
+        <td>{{vehicletype.name}}</td>
+        <td>{{vehicletype.company?.name}}</td>
+        <td>{{vehicletype.description}}</td>
+        <td><button (click)="editVehicleType(vehicletype.id)" class="btn btn-link">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

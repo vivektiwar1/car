@@ -1,0 +1,121 @@
+<div id="mySidebar" class="sidebar">
+  <div id="SideBarContent">
+    <a [routerLink]="['/dashboard/superadmin/']" routerLinkActive="router-link-active">
+      <div style="display: flex;justify-content: flex-start">
+        <i class="fa fa-tachometer sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Dashbord</div>
+      </div>
+    </a>
+
+    <a style="cursor: pointer;" (click)="subMenuDefinition()">
+      <div style="display: flex;justify-content: flex-start">
+        <i class="fa fa-list-ul sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Definitions</div>
+      </div>
+    </a>
+
+    <a
+      [routerLink]="['/countries']"
+      routerLinkActive="router-link-active"
+      style="cursor: pointer;"
+      *ngIf="expaned"
+    >
+      <div style="display: flex;justify-content: flex-start">
+        <i class="sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Countries</div>
+      </div>
+    </a>
+
+    <a
+      [routerLink]="['/currencysymbols']"
+      routerLinkActive="router-link-active"
+      style="cursor: pointer;"
+      *ngIf="expaned"
+    >
+      <div style="display: flex;justify-content: flex-start">
+        <i class="sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Currency symbols</div>
+      </div>
+    </a>
+
+    <a
+      [routerLink]="['/extramodule']"
+      routerLinkActive="router-link-active"
+      style="cursor: pointer;"
+      *ngIf="expaned"
+    >
+      <div style="display: flex;justify-content: flex-start">
+        <i class="sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Extra modules</div>
+      </div>
+    </a>
+
+    <a
+      [routerLink]="['/languages']"
+      routerLinkActive="router-link-active"
+      style="cursor: pointer;"
+      *ngIf="expaned"
+    >
+      <div style="display: flex;justify-content: flex-start">
+        <i class="sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Languages</div>
+      </div>
+    </a>
+
+    <a
+      [routerLink]="['/packages']"
+      routerLinkActive="router-link-active"
+      style="cursor: pointer;"
+      *ngIf="expaned"
+    >
+      <div style="display: flex;justify-content: flex-start">
+        <i class="sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Packages</div>
+      </div>
+    </a>
+
+    <a
+      [routerLink]="['/vehiclecategories']"
+      routerLinkActive="router-link-active"
+      style="cursor: pointer;"
+      *ngIf="expaned"
+    >
+      <div style="display: flex;justify-content: flex-start">
+        <i class="sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Vehicle categories</div>
+      </div>
+    </a>
+
+    <a href="#">
+      <div style="display: flex;justify-content: flex-start">
+        <i class="fa fa-bar-chart sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Statistics</div>
+      </div>
+    </a>
+
+    <a [routerLink]="['/superadmin/clients/']" routerLinkActive="router-link-active">
+      <div style="display: flex;justify-content: flex-start">
+        <i class="fa fa-users sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Clients</div>
+      </div>
+    </a>
+    <a [routerLink]="['/superadmin/protocol/']" routerLinkActive="router-link-active">    
+      <div style="display: flex;justify-content: flex-start">
+        <i class="fa fa-calendar sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Protocols</div>
+      </div>
+    </a>
+    <a href="#">
+      <div style="display: flex;justify-content: flex-start">
+        <i class="fa fa-cc-mastercard sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Invoices</div>
+      </div>
+    </a>
+    <a [routerLink]="['/superadmin/abc/']" routerLinkActive="router-link-active">
+      <div style="display: flex;justify-content: flex-start">
+        <i class="fa fa-cc-mastercard sideBarItem" aria-hidden="true"></i>
+        <div class="sideBarItem">Client Details</div>
+      </div>
+    </a>
+  </div>
+</div>

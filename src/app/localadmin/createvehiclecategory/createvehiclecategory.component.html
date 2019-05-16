@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup]="vehicleTypeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label>Name</label>
+          <input type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid': vehicleTypeForm.get('name').errors 
+          && vehicleTypeForm.get('name').touched}"  />
+          <div class="invalid-feedback">Please choose a name</div>
+      </div>
+      <div class="form-group">
+          <label>Company</label>
+          <select formControlName="companyId" class="form-control" class="form-control" [ngClass]="{'is-invalid': vehicleTypeForm.get('companyId').errors 
+        && vehicleTypeForm.get('companyId').touched}">
+          <option *ngFor="let company of companies" [value]="company.id">
+                  {{company?.name}}
+          </option>
+        </select>
+        <div class="invalid-feedback">Please choose the country</div>
+          
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" formControlName="description" class="form-control"  />
+    </div>
+      <div class="form-group">
+          <button class="btn btn-primary" [hidden]="!addBtn">Add</button>
+          <button class="btn btn-primary" [hidden]="addBtn">Update</button>
+      </div>
+  </form>
+</div>

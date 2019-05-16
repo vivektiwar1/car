@@ -1,0 +1,26 @@
+
+<div class="container">
+  <button class="btn btn-primary mb-2" [routerLink]="['/editextramoduleprice/0', extramoduleid]" routerLinkActive="router-link-active" >Add new</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Extra Module</th>
+        <th>Currency Symbol</th>
+        <th>Country</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let extraModulePrice of extraModulePrices">
+        <td>{{extraModulePrice.extraModule?.name}}</td>
+        <td>{{extraModulePrice.currencySymbol?.symbol}}</td>
+        <td>{{extraModulePrice.country?.name}}</td>
+        <td>{{extraModulePrice.price}}</td>
+        <td><button (click)="editExtraModulePrice(extraModulePrice.id)" class="btn btn-link">Edit</button> |
+            <button class="btn btn-link" (click)="deleteExtraModulePrice(extraModulePrice.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

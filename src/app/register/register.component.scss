@@ -1,0 +1,80 @@
+@import "../../assets/scss/theme/variables";
+
+.register-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .form-wrapper {
+    // width: 60%;
+    padding-left: 130px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    ::ng-deep {
+      .forms {
+        width: 60%;
+
+        .options-forms {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .options-form-wrapper {
+            display: flex;
+
+            .date-form {
+              width: 33.3333333%;
+              border-top-right-radius: 0px !important;
+              border-bottom-right-radius: 0px !important;
+            }
+
+            .month-form {
+              width: 33.333333333%;
+              border-radius: 0 !important;
+              border-left: transparent !important;
+              border-right: transparent !important;
+            }
+
+            .year-form {
+              width: 33.33333333%;
+              border-top-left-radius: 0 !important;
+              border-bottom-left-radius: 0 !important;
+            }
+          }
+        }
+
+        .btn-default {
+          margin-top: 30px;
+          margin-bottom: 20px;
+          @include secound-button;
+
+          font-family: $font;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.86;
+          letter-spacing: 0.1px;
+          text-align: center;
+          // color: #33b1de;
+
+        }
+      }
+    }
+
+    h5 {
+      @include first-header;
+      margin-top: 90px;
+    }
+  }
+
+}
+
+app-left-part {
+  width: 40% !important;
+}

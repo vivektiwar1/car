@@ -1,0 +1,12 @@
+
+@import "assets/scss/style";
+@import "../node_modules/alertifyjs/build/css/alertify.min.css";
+@import "../node_modules/flag-icon-css/css/flag-icon.min.css";
+
+body {
+  //width: 100vw;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,23 @@
+
+<div class="container">
+  <button class="btn btn-primary mb-2" [routerLink]="['/countries/editterm/0', countryid]" routerLinkActive="router-link-active" >Add new</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th >Name</th>
+        <th >Country</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let term of termsAndConditions">
+        <td>{{term.name}}</td>
+        <td>{{term.country.name}}</td>
+        <td><button (click)="editTerm(term.id)" class="btn btn-link">Edit</button>
+          <button (click)="deleteTerm(term.id)" class="btn btn-link">Delete</button>
+          <button (click)="downloadDocument(term.id)" class="btn btn-link">Download</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

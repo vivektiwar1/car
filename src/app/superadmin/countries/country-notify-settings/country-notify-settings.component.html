@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div class="card">
+      <div class="card-body">
+          <form [formGroup]="countryForm" (submit)="editCountry()">
+            <h5>Edit Notify Settings: {{country.name}}</h5>
+              <div class="forms">          
+                  <div class="form-group">
+                    <label><input type="checkbox" formControlName="notifyByEmail">Notify by Email</label>
+                  </div>
+                  <div class="form-group">
+                    <label><input type="checkbox" formControlName="notifyBySMS">Notify by SMS</label>
+                  </div>
+                  <div class="form-group">
+                    <label><input type="checkbox" formControlName="otherNotify">Other Notify</label>
+                  </div>                            
+              </div>            
+            <button class="btn btn-primary mr-3" [disabled]="!countryForm.valid" type="submit">Submit</button> 
+            <button class="btn btn-primary" type="button" [routerLink]="['/countries']" routerLinkActive="router-link-active">Cancel</button>  
+          </form> 
+      </div>
+    </div>
+  </div>
+  
+  <!-- 
+    <p>Form value: {{countryForm.value | json}}</p>
+    <p>Form status: {{countryForm.status | json}}</p> -->

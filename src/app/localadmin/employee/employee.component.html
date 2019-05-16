@@ -1,0 +1,30 @@
+
+<div class="container">
+    <button class="btn btn-primary mb-2" [routerLink]="['/editemployee/0']" routerLinkActive="router-link-active" >Add new</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th >First Name</th>
+          <th >LastName</th>
+          <th>User Name</th>
+          <th>Email Address</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.lastName}}</td>
+          <td>{{employee.userName}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.address}}</td>
+          <td>{{employee.phone}}</td>
+          <td><button (click)="editemployee(employee.id)" class="btn btn-link">Edit</button>
+            <button (click)="deleteEmployee(employee.id)" class="btn btn-link">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

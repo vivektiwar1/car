@@ -1,0 +1,25 @@
+
+<div class="container" style="margin-left: 200px;">
+  <div style="display: flex; justify-content: flex-end; margin-bottom:20px;margin-top:10px;border-radius: 5%;"> 
+    <div class="AddButton"   [routerLink]="['/editpackage/0']" routerLinkActive="router-link-active">Add new</div> 
+</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="tblHeader" >Name</th>
+        <th class="tblHeader" >Description</th>
+        <th class="tblHeader">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="tblBody">
+      <tr *ngFor="let package of packages">
+        <td>{{package.name}}</td>
+        <td>{{package.description}}</td>
+        <td><button (click)="editPackage(package.id)" class="btn btn-link">Edit</button> |
+            <button (click)="deletePackage(package.id)" class="btn btn-link">Disable</button>
+            <a [routerLink]="['/packageplanprices',package.id]"   class="btn btn-link" > Prices</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,385 @@
+@import "variables";
+
+//Navigation link global styling
+.navigation-link {
+  font-family: $font;
+  font-size: 26px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: $white;
+  text-decoration: none;
+}
+
+//THis is temporary here because i will change this link with the real logo
+.logo {
+  font-family: $font;
+  padding-left: 14px;
+  font-size: 51.5px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+//Bootstrap form editing
+.form-control {
+  border-radius: 18px !important;
+  box-shadow: 0 0 18px 0 rgba(148, 148, 148, 0.1);
+  @include form;
+  color: #c0c0c0;
+
+  .option-control {
+    @include form;
+
+  }
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #c0c0c0;
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: #c0c0c0;
+  }
+
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: #c0c0c0;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: #c0c0c0;
+  }
+}
+.form-control.is-invalid~.invalid-feedback, .form-control.is-invalid~.invalid-tooltip, .was-validated .form-control:invalid~.invalid-feedback, .was-validated .form-control:invalid~.invalid-tooltip  {
+  display: block;
+  position: absolute;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.active-form {
+  border-color: #33b1de !important;
+  color: #33b1de !important;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.85;
+  letter-spacing: normal;
+  text-align: left;
+  color: #c0c0c0;
+}
+
+
+.btn-default {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  @include secound-button;
+
+  &:hover {
+    background: #33b1de !important;
+    color: $white !important;
+    transition: 0.5s;
+  }
+}
+
+*:focus {
+  outline: none !important;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+input {
+  transition: 0.5s;
+}
+
+//THis is the end of bootstrap form editing
+
+//progressbar
+.progressbar {
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+  margin-left: -53px;
+  //position: absolute;
+  top: 22px;
+  width: 100%;
+
+  li {
+    list-style-type: none;
+    width: 20%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7d7d7d;
+
+    &:first-child:before {
+      width: 43px;
+      height: 42px;
+      //content: '';
+      content: "\f007";
+      font-size: 18px;
+      font-family: FontAwesome;
+      //counter-increment: step;
+      line-height: 40px;
+      border: 2px solid #7d7d7d;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background-color: white;
+      color: #ffffff;
+    }
+
+    &:nth-child(2):before {
+      width: 43px;
+      height: 42px;
+      //content: '';
+      content: '\f0f2';
+      font-size: 18px;
+      font-family: FontAwesome;
+      box-shadow: 0 0 18px 0 rgba(148, 148, 148, 0.1);
+      border: 1px solid #ebebeb;
+      display: block;
+      color: #ebebeb;
+      //counter-increment: step;
+      line-height: 40px;
+
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+    &:nth-child(3):before {
+      width: 43px;
+      height: 42px;
+      //content: '';
+      content: '\f00c';
+      font-size: 18px;
+      font-family: FontAwesome;
+      //counter-increment: step;
+      box-shadow: 0 0 18px 0 rgba(148, 148, 148, 0.1);
+      border: 1px solid #ebebeb;
+      display: block;
+      color: #ebebeb;
+      line-height: 40px;
+
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+    &:after {
+      width: 100%;
+      height: 4px;
+      content: '';
+      position: absolute;
+      background-color: #7d7d7d;
+      top: 20px;
+      left: -50%;
+      z-index: -1;
+    }
+
+    &:nth-child(3):after {
+      width: 100% !important;
+      height: 4px;
+      content: '';
+      position: absolute;
+      background-color: #ebebeb;
+      top: 20px;
+      left: -50%;
+      z-index: -1;
+    }
+
+    &:first-child:after {
+      content: none;
+    }
+  }
+
+}
+
+//.progressbar li:after {
+//  width: 100%;
+//  height: 4px;
+//  content: '';
+//  position: absolute;
+//  background-color: #7d7d7d;
+//  top: 20px;
+//  left: -50%;
+//  z-index: -1;
+//}
+//
+//.progressbar li:nth-child(3):after {
+//  width: 100% !important;
+//  height: 4px;
+//  content: '';
+//  position: absolute;
+//  background-color: #ebebeb;
+//  top: 20px;
+//  left: -50%;
+//  z-index: -1;
+//}
+//
+//.progressbar li:first-child:after {
+//  content: none;
+//}
+
+.progressbar li.active {
+  color: #33b1de;
+
+
+}
+
+.progressbar li.active:before {
+  border-color: #33b1de;
+  background-color: #33b1de;
+  color: #ffffff;
+}
+
+.progressbar li.active + li:after {
+  background-color: #33b1de;
+}
+
+
+//App-left-component
+app-left-part {
+  width: 40% !important;
+}
+
+
+.box {
+  .js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .inputfile + label {
+    max-width: 100%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+
+    //padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+  }
+
+  .no-js .inputfile + label {
+    display: none;
+  }
+
+  .inputfile {
+    &:focus + label, &.has-focus + label {
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    + label {
+      * {
+        /* pointer-events: none; */
+        /* in case of FastClick lib use */
+      }
+
+      svg {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: currentColor;
+        margin-top: -0.25em;
+        /* 4px */
+        margin-right: 0.25em;
+        /* 4px */
+      }
+    }
+  }
+
+  /* style 4 */
+
+  .inputfile-4 {
+    + label {
+      font-size: 16px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.84;
+      letter-spacing: normal;
+      text-align: left;
+      color: #c0c0c0;
+      //margin-bottom: 42px;
+    }
+
+    &:focus + label, &.has-focus + label {
+      color: #722040;
+    }
+
+    + label {
+      &:hover {
+        color: #722040;
+      }
+
+      figure {
+        display: block;
+        //padding: 20px;
+        //margin: 0 auto 10px;
+        margin-top: 20px;
+        margin-bottom: 0;
+        margin-right: 30px;
+        width: 70px;
+        height: 62px;
+        border-radius: 18px;
+        box-shadow: 0 0 18px 0 rgba(148, 148, 148, 0.1);
+        background-color: #ffffff;
+        border: 1px solid #ebebeb;
+
+      }
+
+      .fa {
+        text-align: center !important;
+        line-height: 2.4;
+        font-size: 24px;
+        width: 100%;
+        color: #ebebeb;
+      }
+
+      span {
+        margin-top: 35px;
+        width: 50%;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: #f1e5e6;
+      }
+    }
+
+    display: none;
+  }
+}
+
+
+

@@ -1,0 +1,43 @@
+<div class="container">
+  <form [formGroup]="extraModulePriceForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label>Currency</label>
+          <select formControlName="currencySymbolId" class="form-control">
+            <option *ngFor="let currency of extraModulePrice.currencies" [value]="currency.id">
+                    {{currency?.symbol}}
+            </option>
+          </select>
+          
+      </div>
+      <div class="form-group">
+          <label>Country</label>
+          <select formControlName="countryId" class="form-control">
+            <option *ngFor="let country of extraModulePrice.countries" [value]="country.id">
+                    {{country?.name}}
+            </option>
+          </select>
+          
+      </div>
+      <div class="form-group">
+        <label>Extra Module</label>
+        <select formControlName="extraModuleId" class="form-control" class="form-control" [ngClass]="{'is-invalid': extraModulePriceForm.get('extraModuleId').errors 
+        && extraModulePriceForm.get('extraModuleId').touched}">
+          <option *ngFor="let extraModule of extraModulePrice.extraModules" [value]="extraModule.id">
+                  {{extraModule?.name}}
+          </option>
+        </select>
+        <div class="invalid-feedback">Please choose extra module</div>
+        
+    </div>
+    <div class="form-group">
+      <label>Price</label>
+      <input type="text" formControlName="price" class="form-control" [ngClass]="{'is-invalid': extraModulePriceForm.get('price').errors 
+      && extraModulePriceForm.get('price').touched}" />
+      <div class="invalid-feedback">Please choose price</div>
+  </div>
+      <div class="form-group">
+          <button class="btn btn-primary" [hidden]="!addBtn">Add</button>
+          <button class="btn btn-primary" [hidden]="addBtn">Update</button>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="usr">First Name:</label>
+        <input [ngClass]="{'is-invalid': employeeForm.get('FirstName').errors
+          && employeeForm.get('FirstName').touched}" class="form-control"
+              formControlName="FirstName" id="FirstName" placeholder="First Name" type="text">
+        <div class="invalid-feedback">Please choose a First Name</div>
+      </div>
+      <div class="form-group">
+        <label for="usr">Last Name:</label>
+        <input [ngClass]="{'is-invalid': employeeForm.get('LastName').errors
+          && employeeForm.get('LastName').touched}" class="form-control" formControlName="LastName" id="LastName" placeholder="Last Name"
+              type="text">
+        <div class="invalid-feedback">Please choose a Last Name</div>
+      </div>
+      <div class="form-group">
+          <label for="pass">User Name:</label>
+          <input class="form-control" formControlName="UserName" id="UserName" placeholder="UserName" type="text" [ngClass]="{'is-invalid': employeeForm.get('UserName').errors
+          && employeeForm.get('UserName').touched}">
+          <div class="invalid-feedback">Please choose a User Name</div>
+      </div>
+      <div class="form-group">
+        <label for="usr">Email:</label>
+        <input [ngClass]="{'is-invalid': employeeForm.get('Email').errors
+          && employeeForm.get('Email').touched}" class="form-control" formControlName="Email" id="Email" placeholder="Email" type="text">
+        <div class="invalid-feedback">Please write an email</div>
+      </div>
+      <div class="form-group">
+        <label for="pass">Address:</label>
+        <input class="form-control" formControlName="Address" id="Address" placeholder="Address" type="text">
+      </div>
+      <div class="form-group">
+        <label for="pass">Phone:</label>
+        <input class="form-control" formControlName="Phone" id="Phone" placeholder="Phone" type="number">
+      </div>
+      <div class="radio row">
+        <label class="col-sm-1">Role</label>
+        <div class="col-sm-6">
+        <label for="" *ngFor="let role of roles">
+          <input type="radio"  name="Role" id="Role" (click)="assignValue(role)"> {{role}} <br />
+        </label>
+      </div>
+      </div>
+      <br/>
+      <div class="form-group">
+          <button class="btn btn-primary" [hidden]="!addBtn">Add</button>
+          <button class="btn btn-primary" [hidden]="addBtn">Update</button>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,46 @@
+.tblHeader {
+    width: 137px;
+    height: 14px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.11;
+    letter-spacing: normal;
+    text-align: left;
+    color: #5082a5;
+  }
+  
+  .tblBody {
+    width: 73px;
+    height: 11px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.11;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9daab3;
+  }
+  
+   tr:hover {
+    background-color: #f7f9fa;
+  }
+  
+  .AddButton {
+    padding:5px 20px;
+    background-color:#ffffff;
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 45px;
+    border-top-left-radius: 45px;
+    border-bottom-left-radius: 45px;
+    border: 1px solid #ebebeb;
+    cursor: pointer;
+  }
+  
+  .AddButton:hover {
+    color:white;
+    background-color: #5082a5;
+  }

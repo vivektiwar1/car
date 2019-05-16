@@ -1,0 +1,128 @@
+@import "variables";
+
+.navigation-link {
+  font-family: $font;
+  font-size: 26px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: $white;
+  text-decoration: none;
+}
+
+.form-control {
+  border-radius: 18px !important ;
+  box-shadow: 0 0 18px 0 rgba(148, 148, 148, 0.1) ;
+  @include form;
+  // color: #ebebeb ;
+  .option-control {
+    @include form;
+
+  }
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    //color: #ebebeb;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    //color: #ebebeb ;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    //color: #ebebeb;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    //color: #ebebeb;
+  }
+}
+
+label {
+  font-size: 16px ;
+  font-weight: 300 ;
+  font-style: normal ;
+  font-stretch: normal ;
+  line-height: 1.85 ;
+  letter-spacing: normal ;
+  text-align: left ;
+  //color: #c0c0c0 ;
+}
+
+.nice-select.open .list  {
+  width: 100%;
+  border-radius: 18px !important;
+  
+}
+
+.nice-select:after {
+  margin-top: -7px !important;
+  height: 10px !important;
+  width: 10px !important;
+  right: 24px !important;
+  border-bottom: 1px solid #c0c0c0 !important;
+  border-right: 1px solid #c0c0c0 !important;
+}
+
+.nice-select {
+  border-radius: 18px !important;
+  box-shadow: 0 0 18px 0 rgba(148, 148, 148, 0.1) !important;
+  background-color: #ffffff !important;
+  line-height: 30px !important;
+}
+
+.logo {
+  font-family: $font;
+  padding-left: 14px;
+  font-size: 51.5px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+input {
+  transition: 0.5s;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition: 0.5s;
+}
+
+.form-check {
+  padding-left: 0px;
+}
+
+.mat-checkbox-ripple {
+  display: none !important;
+}
+
+.mat-checkbox-frame {
+  border-color: #ebebeb;
+  width: 17px;
+  height: 18px;
+  background: #ffffff;
+  border-width: 1px !important;
+}
+
+.mat-checkbox-inner-container {
+  width: 17px !important;
+  height: 18px !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background: $base-color !important;
+}

@@ -1,0 +1,50 @@
+
+<div class="container" style="max-width:1100px !important;">
+  <h2>Protocol</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Vehicle Control Label</th>
+      <th>Chassis Number</th>
+      <th>Owner Type</th>
+      <th>Place</th>
+      <th>Vehicle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let protocol of protocols">
+      <td>{{protocol.vehicleControlLabel}}</td>
+      <td>{{protocol.chassisNumber}}</td>
+      <td>{{protocol.ownerType}}</td>
+      <td>{{protocol.place}}</td>
+      <td>{{protocol.vehicle}}</td>
+    </tr>
+   
+  </tbody>
+</table>
+
+
+
+<table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Driver</th>
+          <th>Cost</th>
+          <th>Deposit</th>
+          <th>Accessories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ABC</td>
+          <td>CHF 500.00</td>
+          <td>CHF 200.00</td>
+          <td>-Navigation <br/>
+              -Lorem                
+          </td>
+        </tr>
+        
+       
+      </tbody>
+    </table>
+    </div>

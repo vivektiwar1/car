@@ -1,0 +1,448 @@
+@import "~src/assets/scss/theme/variables";
+
+.left-part-wrapper {
+  height: 100vh;
+  width: 70%;
+  background-image: url("../../assets/Background/bg.png");
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      transition: 0.5s;
+      padding-right: 22px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 70px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      line-height: 4.5;
+      height: 132px;
+      color: $white;
+      position: relative;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      // background: $white;
+      color: #5082a5;
+      background-image: url(../../assets/Icons/css-shape.svg);
+      line-height: 4.5;
+      height: 132px;
+      background-repeat: no-repeat;
+      position: relative;
+
+    }
+
+    .login {
+      &:after {
+        position: absolute;
+        top: 5px;
+        left: 24px;
+        content: url('../../assets/Icons/login.svg');
+      }
+    }
+
+    .login.active {
+      &:after {
+        position: absolute;
+        top: 5px;
+        left: 24px;
+        content: url('../../assets/Icons/login-2.svg');
+      }
+    }
+
+    .sign-up {
+      &:after {
+        position: absolute;
+        top: 9px;
+        left: 24px;
+        content: url('../../assets/Icons/sign-up.svg');
+      }
+    }
+
+    .sign-up.active {
+      &:after {
+        position: absolute;
+        top: 9px;
+        left: 24px;
+        content: url('../../assets/Icons/sign-up-2.svg');
+      }
+    }
+  }
+
+  @include media-breakpoint-between(xs, sm) {
+    width: 100%;
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  .login-wrapper {
+    width: 100%;
+
+    .form-wrapper {
+      width: 100%;
+      padding-left: 130px;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      justify-content: center;
+
+      .forms {
+        width: 50%;
+
+        .options-forms {
+          display: flex;
+          justify-content: space-between;
+
+          .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+          }
+        }
+
+        .text-part {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .forgot-password {
+            @include label;
+          }
+
+          .form-check-label {
+            @include label;
+          }
+
+          .form-check-input {
+            position: absolute;
+            margin-top: .4rem;
+            height: 15px;
+            width: 20px;
+            margin-left: -1.25rem;
+          }
+
+          .form-check {
+            padding-left: 0px !important;
+          }
+
+          .remember-me-label {
+            font-family: "Roboto", sans-serif;
+            font-size: 12px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #c0c0c0;
+            line-height: 2.3;
+          }
+        }
+
+        .btn-primary {
+          @include default-button;
+          @include media-breakpoint-between(xs, sm) {
+            margin-bottom: 15px;
+          }
+        }
+
+        @include media-breakpoint-between(xs, sm) {
+          width: 90%;
+          margin: auto !important;
+        }
+        @include media-breakpoint-between(md,lg) {
+          width: 90% !important;
+        }
+        //@include media-breakpoint-only(lg) {
+        //  width: 90% !important;
+        //}
+      }
+
+      h5 {
+        @include first-header;
+        margin-top: 90px;
+        @include media-breakpoint-between(xs, sm) {
+          margin-top: 0px !important;
+          padding-left: 14px;
+        }
+        @include media-breakpoint-between(md,lg) {
+          margin-top: 0px !important;
+        }
+      }
+
+      @include media-breakpoint-between(xs, sm) {
+        padding-left: 15px;
+        height: unset !important;
+        margin-top: 0px !important;
+      }
+      @include media-breakpoint-only(md) {
+        padding-left: 50px !important;
+      }
+      @include media-breakpoint-only(lg) {
+        padding-left: 90px !important;
+      }
+    }
+
+
+    .term-of-use {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+
+      .custom-control-label::before {
+        width: 24px;
+        height: 24px;
+      }
+
+      .custom-control-label::after {
+        width: 24px;
+        height: 24px;
+      }
+
+      p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        //line-height: 1.17;
+        letter-spacing: normal;
+        text-align: left;
+        color: #c0c0c0;
+        margin-left: 10px;
+        margin-top: 4px;
+
+        a {
+          color: $base-color;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-between(xs, sm) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+.register-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+
+  .form-wrapper {
+    padding-left: 130px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: scroll;
+
+
+    ::ng-deep {
+      .forms {
+        width: 70%;
+
+        .options-forms {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .options-form-wrapper {
+            display: flex;
+
+            .date-form {
+              width: 33.3333333%;
+
+              .form-control {
+                border-top-right-radius: 0px !important;
+                border-bottom-right-radius: 0px !important;
+              }
+            }
+
+            .month-form {
+              width: 33.333333333%;
+
+              border-left: transparent !important;
+              border-right: transparent !important;
+
+              .form-control {
+                border-radius: 0 !important;
+              }
+            }
+
+            .year-form {
+              width: 33.33333333%;
+
+              .form-control {
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+              }
+            }
+          }
+        }
+
+        .btn-default {
+          margin-top: 30px;
+          margin-bottom: 20px;
+          @include secound-button;
+          font-family: $font;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.86;
+          letter-spacing: 0.1px;
+          text-align: center;
+          @include media-breakpoint-between(xs,sm) {
+            margin-top: 15px !important;
+          }
+        }
+        @include media-breakpoint-between(xs,sm) {
+          width: 95% !important;
+          //position: relative;
+          height: 100% !important;
+          //margin-top: 105px;
+        }
+        @include media-breakpoint-between(md,lg) {
+          width: 100% !important;
+        }
+        .progressbar {
+          @include media-breakpoint-between(xs,sm) {
+            //margin-top: 20px;
+            margin-left: 0px !important;
+            width: 100% !important;
+            li {
+              width: 33.33333% !important;
+            }
+          }
+          @include media-breakpoint-between(md,lg) {
+            //position: absolute;
+            width: 80% !important;
+            margin-left: 0px !important;
+            align-items: center;
+            display: flex;
+            //top: -59px;
+            li {
+              width: 33.33333% !important;
+            }
+          }
+        }
+      }
+    }
+
+
+    h5 {
+      @include first-header;
+      margin-top: 90px;
+      @include media-breakpoint-between(xs,sm) {
+        margin-top: 0px !important;
+      }
+      @include media-breakpoint-between(md,lg) {
+        margin-top: 0px !important;
+      }
+    }
+
+    .term-of-use {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 15px;
+      //position: absolute;
+      //bottom: 0;
+
+      .custom-control-label::before {
+        width: 24px;
+        height: 24px;
+      }
+
+      .custom-control-label::after {
+        width: 24px;
+        height: 24px;
+      }
+
+
+      p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        //line-height: 1.17;
+        letter-spacing: normal;
+        text-align: left;
+        color: #c0c0c0;
+        margin-left: 10px;
+        margin-top: 4px;
+
+        a {
+          color: $base-color;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      @include media-breakpoint-between(xs,sm) {
+        justify-content: unset !important;
+        margin-top: 23px;
+      }
+    }
+    .next-step-info {
+      //position: relative;
+      @include media-breakpoint-between(xs,sm) {
+      }
+      .progressbar {
+        @include media-breakpoint-between(xs,sm) {
+          //position: absolute;
+          width: 100% !important;
+          margin-left: 0px !important;
+          //top: -59px;
+          li {
+            width: 33.33333% !important;
+          }
+        }
+        @include media-breakpoint-between(md,lg) {
+          //position: absolute;
+          width: 80% !important;
+          margin-left: 0px !important;
+          align-items: center;
+          display: flex;
+          //top: -59px;
+          li {
+            width: 33.33333% !important;
+          }
+        }
+      }
+      @include media-breakpoint-between(md,lg) {
+        width: 95%;
+      }
+    }
+    @include media-breakpoint-between(xs,sm) {
+      padding-left: 15px !important;
+    }
+    @include media-breakpoint-between(md,lg) {
+      padding-left: 40px;
+    }
+  }
+}
+

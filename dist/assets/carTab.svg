@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144.493" height="65.114" viewBox="0 0 144.493 65.114">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-size: 51.465px;
+        font-family: Prelo-Medium, Prelo;
+        font-weight: 500;
+      }
+
+      .cls-2 {
+        font-family: Prelo-Book, Prelo;
+        font-weight: 400;
+      }
+    </style>
+  </defs>
+  <text id="carTab" class="cls-1" transform="matrix(1, -0.008, 0.008, 1, 0.397, 52.114)"><tspan x="0" y="0">car</tspan><tspan class="cls-2" y="0">Tab</tspan></text>
+</svg>

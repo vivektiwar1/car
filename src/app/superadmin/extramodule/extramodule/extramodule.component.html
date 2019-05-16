@@ -1,0 +1,28 @@
+
+<div class="container mt-5" style="margin-left: 200px;" >
+  <div style="display: flex; justify-content: flex-end; margin-bottom:20px;border-radius: 5%;"> 
+      <div class="AddButton" [routerLink]="['/editextramodule/0']" routerLinkActive="router-link-active" >Add new</div> 
+  </div>
+    <div class="card">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="tblHeader">Name</th>
+                <th scope="col" class="tblHeader" >Description</th>
+                <th scope="col" class="tblHeader">Actions</th>          
+              </tr>
+            </thead>
+            <tbody class="tblBody">
+              <tr *ngFor="let extramodule of extraModules">
+                <td>{{extramodule.name}}</td>
+                <td>{{extramodule.description}}</td>
+                <td><button (click)="editExtraModule(extramodule.id)" class="btn btn-link">Edit</button> |
+                    <button (click)="deleteExtraModule(extramodule.id)" class="btn btn-link">Delete</button> |
+                  <button [routerLink]="['/extramoduleprice', extramodule.id]">Prices</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  

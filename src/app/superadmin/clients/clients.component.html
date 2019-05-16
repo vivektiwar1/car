@@ -1,0 +1,63 @@
+<div class="container mt-5" style="margin-left: 200px;" >
+  <div style="display: flex; justify-content: flex-end; margin-bottom:20px;border-radius: 5%;"> 
+    <div class="AddButton"  [routerLink]="['/editclient/0']" routerLinkActive="router-link-active" >Add new</div> 
+</div>
+  <div id="DashContainer">
+    <div id="DashHeader">          
+          <div>
+              List of users (titel anpassen) - Waiting for approval
+          </div>
+
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Country</th>
+                <th>Zip</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clients">
+                <td>{{client.id}}</td>
+                <td>{{client.firstName}}</td>
+                <td>{{client.lastName}}</td>
+                <td>{{client.country}}</td>
+                <td>{{client.zip}}</td>
+                <td><button (click)="getClient(client.id)" class="btn btn-link">View</button> |
+
+              </tr>
+            </tbody>
+          </table>
+
+          
+
+          
+    </div>
+    
+  </div>
+</div>
+
+
+      
+      <!-- 
+        <p>Form value: {{countryForm.value | json}}</p>
+        <p>Form status: {{countryForm.status | json}}</p> -->
+  
+
+
+<style>
+table.tab-master{
+  width: 100%;
+}
+table.tab-master th,table.tab-master td {
+  border-bottom: 1px solid #ddd;
+}
+table.tab-master tr th {background: #E6E6E6}
+table.tab-master tr:nth-child(even) {background: #F6F6F6}
+table.tab-master tr:nth-child(odd) {background: #FFF}
+
+</style>
+

@@ -1,0 +1,117 @@
+<div class="left-part-wrapper">
+  <div class="content">
+    <h3 class="logo">carTab</h3>
+    <div class="Loginitem" (click)="clickEvent('login')" [ngClass]="status == 'login' ? 'active' : ''">
+      <div style="background-color: white;">
+        <div class="corner-top"></div>
+      </div>
+      <div [routerLink]="['/login']" class="link" [ngClass]="status == 'login' ? 'active' : ''">
+        <i class="fa fa-user-plus" style="margin-right: 5px;padding-top: 3px;"></i>
+        <div>Login</div>
+      </div>
+      <div style="background-color: white;">
+        <div class="corner-bottom"></div>
+      </div>
+    </div>
+    <div class="Registeritem" (click)="clickEvent('register')" [ngClass]="status == 'register' ? 'active' : ''">
+      <div style="background-color: white;">
+        <div class="corner-top"></div>
+      </div>
+      <div [routerLink]="['/register']" class="link" [ngClass]="status == 'register' ? 'active' : ''">
+        <i class="fa fa-user-plus" style="margin-right: 5px;padding-top: 3px;"></i>
+        <div>Register</div>
+      </div>
+      <div style="background-color: white;">
+        <div class="corner-bottom"></div>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>
+
+
+//ToDo: add style in separate file
+<style>
+  .corner-top {
+    height: 25px;
+    background-color:#5082A5;
+  }
+  .corner-bottom {
+    height: 25px;
+    background-color:#5082A5;
+  }
+  .Loginitem {
+    color:white;
+    position: relative;
+  }
+
+ .Registeritem {
+    color:white;
+    position: relative;
+  }
+
+  .link{
+      display: flex;
+      justify-content: flex-start;
+      padding: 20px;
+      cursor: pointer;
+  }
+  .Loginitem:hover .link {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    color:#5082a5;
+    
+  }
+
+  .Loginitem .active {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    color:#5082a5;
+    
+  }
+
+  .Loginitem:hover .corner-top {
+    border-bottom-right-radius: 27px;
+  }
+ 
+   .Loginitem:hover .corner-top-end {
+    background-color: white;
+  }
+
+  .Loginitem:hover .corner-bottom {
+    border-top-right-radius: 27px;
+  }
+  
+
+
+.Registeritem:hover .link {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    color:#5082a5;
+  }
+
+.Registeritem .active {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    color:#5082a5;
+  }
+
+  .Registeritem:hover .corner-top {
+    border-bottom-right-radius: 27px;
+  }
+
+   .Registeritem:hover .corner-top-end {
+    background-color: white;
+  }
+
+  .Registeritem:hover .corner-bottom {
+    border-top-right-radius: 27px;
+  }
+
+ 
+</style>

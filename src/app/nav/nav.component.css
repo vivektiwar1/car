@@ -1,0 +1,21 @@
+.dropdown-menu li, .dropdown-toggle {
+    cursor: pointer;
+}
+
+img {
+    max-height: 50px;
+    border: 2px solid white;
+    display: inline;
+}
+
+.notificationStyle {
+    padding-left: 5px; 
+    padding-right: 5px; 
+    border-radius: 50px; 
+    font-size: 15px;
+    color: white;
+}
+
+.unSeenNotification{
+    background-color: #c5cdd6;
+}
